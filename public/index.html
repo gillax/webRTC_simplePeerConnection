@@ -11,11 +11,31 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="/webrtc.js"></script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-37970171-1']);
+    _gaq.push(['_setDomainName', 'shiitakeo.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </head>
+<div>
 <body>
   <center><h1>Peer Connection Demo</h1>
+  <h2>shiitakeo.com:3000にアクセスすると，URLの＃以降が自動生成されます．</br>
+    生成されたURLをコピーして別のタブのアドレスバーへペーストし，アクセスしてください</br>
+      同一URLにアクセスしているクライアント同士でビデオチャットができます.
+    </h2>
     <button id="call" type="button" style="WIDTH:400px; HEIGHT:40px" onclick="call();" ><font size="6">call</font></button></center></br>
   <video id="local_video" autoplay style="margin-left:50px;"></video>
   <video id="remote_video" autoplay style="margin-left:50px;"></video>
 </body>
+</div>
 </html>
