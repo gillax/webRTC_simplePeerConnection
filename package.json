@@ -1,0 +1,24 @@
+{
+  "name": "videochat",
+  "version": "1.0.0",
+  "description": "##How to run",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gillax/webRTC_simplePeerConnection"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gillax/webRTC_simplePeerConnection/issues"
+  },
+  "homepage": "https://github.com/gillax/webRTC_simplePeerConnection",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.2.0"
+  }
+}

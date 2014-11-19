@@ -1,16 +1,14 @@
-var express = require('express')
-,   http = require('http')
-,   app = express()
-;
+var express = require('express');
+var http = require('http');
+var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
 var server = http.createServer(app).listen(3000);
 console.log('server start:', 3000);
 
-var io = require('socket.io')
-,   io = io.listen(server)
-;
+var io = require('socket.io');
+io = io.listen(server);
 
 videoChat = io.sockets.on('connection', function(socket) {
   console.log("connect : " + socket);
@@ -19,9 +17,7 @@ videoChat = io.sockets.on('connection', function(socket) {
     var room;
     console.log("recieve : " + data);  
     //socket.broadcast.emit('message', data);
-    socket.get('room', function(err, _room){
-      room = _room;  
-    });
+    room = socket.room;
     videoChat.to(room).emit('message', data);
   });
   //socket.on('disconnect', function(){
@@ -30,7 +26,7 @@ videoChat = io.sockets.on('connection', function(socket) {
  // });
   socket.on('roomId', function(data){
     console.log("roomId : " + data);  
-    socket.set('room', data);
+    socket.room = data;
     videoChat.to(data).emit('rooomId', socket + 'さんが入室');
     socket.join(data);
     //socket.broadcast.emit('roomId', data);
